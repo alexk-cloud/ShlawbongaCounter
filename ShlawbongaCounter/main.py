@@ -34,7 +34,7 @@ async def main():
     twitch = TwitchClient()
     counter = ShlawbongaCounter()
 
-    counter.write_count(config.OUTPUT_FILE)
+    counter.init_txt_file(config.OUTPUT_FILE)
 
     printASCIIArt()
     print("Connecting to Twitch...")
