@@ -6,6 +6,9 @@ class ShlawbongaCounter:
         self.last_sub_total = 0
         self.total_bits = 0
     
+    def init_last_sub_total(self, sub_total):
+        self.last_sub_total = sub_total
+        
     def update_subs(self, new_sub_total):
         gained = new_sub_total - self.last_sub_total
 

@@ -41,6 +41,8 @@ async def main():
     await twitch.connect()
     print("Connected! Time to get FIGGITY FADED...")
 
+    current_sub_total = await twitch.get_sub_count()
+    counter.init_last_sub_total(current_sub_total)
     asyncio.create_task(twitch.start_eventsub(counter.update_bits))
 
     while True:

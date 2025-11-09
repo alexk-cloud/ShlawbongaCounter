@@ -31,7 +31,6 @@ class TwitchClient:
             self.streamer_id = user.id
             break
         
-            
     async def get_sub_count(self):
         subs = await self.twitch.get_broadcaster_subscriptions(self.streamer_id)
         return subs.total
@@ -39,6 +38,8 @@ class TwitchClient:
     async def start_eventsub(self, bits_callback):
         self.websocket = EventSubWebsocket(self.twitch)
         self.websocket.start()
+
+        await asyncio.sleep(5)
         
         async def on_bits(event):
             bits_callback(event.bits)
